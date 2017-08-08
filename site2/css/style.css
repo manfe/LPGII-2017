@@ -1,0 +1,99 @@
+.container {
+    width: 960px;
+    display: block;
+    margin: 0 auto;
+}
+
+body {
+    background: #CCC;
+}
+
+header {
+    float: left;
+    display: block;
+    width: 100%;
+    background: #2C3941;
+    margin-top: 20px;
+}
+
+header h1, header h3 {
+    color: #FFF;
+}
+
+header h1 {
+    margin: 30px 20px 10px;
+}
+
+header h3 {
+    text-align: right;
+    margin-right: 20px;
+}
+
+nav {
+    float: left;
+    display: block;
+    width: 100%;
+    background: #5B9ACE;
+    margin-top: 20px;
+    height: 45px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 14px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #FFF;
+    text-decoration: none;
+    padding: 13px 45px;
+}
+
+nav ul li a:hover {
+    background: #2C3941;
+}
+
+section {
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+section article h1 {
+    text-align: center;
+    margin: 40px 0;
+    color: #212121;
+    font-size: 45px;
+}
+
+section article .content img {
+    float: left;
+    width: 200px;
+    border: 1px solid #FFF;
+    padding: 8px;
+    margin: 0 10px 10px 0;
+}
+
+section article .content p {
+    color: #212121;
+}
+
+footer {
+    display: block;
+    float: left;
+    width: 100%;
+    background: #2C3941;
+    height: 60px;
+}
+
+footer p {
+    color: #FFF;
+    margin-top: 25px;
+    text-align: center;
+}
