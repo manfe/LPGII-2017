@@ -43,10 +43,13 @@ nav ul {
     padding: 0;
     list-style: none;
     margin-top: 14px;
+    display: flex;
+    flex-flow: row wrap;
+    /* This aligns items to the end line on main-axis */
+    justify-content: space-around;
 }
 
 nav ul li {
-    display: inline-block;
 }
 
 nav ul li a {
