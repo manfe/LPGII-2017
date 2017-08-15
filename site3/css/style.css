@@ -139,3 +139,119 @@ nav ul li.btn-blog a:hover {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#076B8C', endColorstr='#0680a7',GradientType=0 ); /* IE6-9 */
 }
 
+section#banner .image {
+    margin-top: 15px;
+    margin-bottom: 40px;
+    position: relative; 
+    width: 100%; /* for IE 6 */
+    float: left;
+}
+
+section#banner .image img {
+    width: 100%;
+}
+
+section#banner .image h2 { 
+   position: absolute; 
+   top: 240px; 
+   left: 0; 
+   width: 120px;
+   padding: 10px 20px;
+   color: #069BBB;
+   background: #FFFFFFCC;
+   text-transform: lowercase;
+}
+
+section#banner .image p { 
+   position: absolute; 
+   top: 300px; 
+   left: 0; 
+   width: 370px;
+   padding: 10px 20px;
+   color: #3c3c3c;
+   background: #FFFFFFCC;
+}
+
+section#about-us {
+    float: left;
+    width: 100%;
+}
+
+section#about-us ul {
+    list-style-image: url('../img/gt-icon.png');
+    height: 22px;
+    margin: 0;
+    padding: 5px 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    border-top: 1px solid #c7c7c7;
+    border-bottom: 1px solid #c7c7c7;
+}
+
+section#about-us ul li:first-child {
+    color: #069BBB;
+    font-size: 14px;
+    padding-top: 3px;
+    list-style: none;
+}
+
+section#about-us ul li a {
+    color: #3c3c3c;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+section#about-us ul li a:hover {
+    color: #069BBB;
+}
+
+section#about-us .about-block {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+    float: left;
+    display: block;
+}
+
+section#about-us .about-block h3 {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+section#about-us .about-block img {
+    float: left;
+    display: block;
+    width: 150px;
+}
+
+section#about-us .about-block p {
+    float: left;
+    display: block;
+    width: 270px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 0;
+    font-size: 12px;
+}
+
+section#about-us .about-block:last-child p {
+    float: left;
+    display: block;
+    width: 290px;
+    margin-left: 20px;
+    margin-right: 0;
+    margin-top: 0;
+    font-size: 12px;
+}
+
+section#about-us .about-block p a {
+    text-decoration: none;
+    color: #069BBB;
+}
+
+section#about-us .about-block .read-more {
+    text-align: right;
+    margin-top: 30px;
+}
