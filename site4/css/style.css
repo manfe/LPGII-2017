@@ -224,11 +224,6 @@ section#about-us .about-block p a {
     color: #069BBB;
 }
 
-section#about-us .about-block .about-text {
-    height: 80px;
-    display: block;
-}
-
 section#about-us .about-block .read-more {
     text-align: right;
     margin-top: 30px;
