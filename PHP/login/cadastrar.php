@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     $email = $_POST['email'];
     $password = $_POST['password'];
 
@@ -10,12 +12,34 @@
 
     $dados = array($email, $encrypted_password);                         
 
-    $file = fopen('users.csv', 'a');
+    $file = fopen('users.csv', 'r+');
 
+    $existed = false;
+
+    // PERCORRE ATÉ O EOF(END OF FILE) FINAL DO ARQUIVO
+    while(!feof($file)) {
+        // PEGA A LINHA ATUAL COM OS DADOS
+        $data = fgetcsv($file);
+        
+        // PERCORRE OS VALORES DA LINHA
+        foreach($data as $linha) {
+            $login = $data[0];
+
+            if ($login == $email) {
+                $existed = true;
+            }            
+        }
+    }
+    
     fputcsv($file, $dados);
 
     fclose($file);
 
-    echo "Dados inseridos no arquivo users.csv";
-
+    if($existed) {
+        $_SESSION['error'] = "E-mail já cadastrado.";
+        header("Location: cadastro.php");
+    } else {
+        $_SESSION['msg'] = "Usuário cadastrado com sucesso.";
+        header('Location: index.php');
+    }
 ?>

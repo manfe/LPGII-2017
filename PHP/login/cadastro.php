@@ -10,6 +10,18 @@
     <body>
         <div class="container">
             <div class="card card-container">
+                <?php
+                    session_start();
+                    if(isset($_SESSION['msg'])) {
+                        echo '<p class="alert alert-success">' . $_SESSION['msg'] . '</p>';
+                        unset($_SESSION['msg']);
+                    }
+
+                    if(isset($_SESSION['error'])) {
+                        echo '<p class="alert alert-danger">' . $_SESSION['error'] . '</p>';
+                        unset($_SESSION['error']);
+                    }
+                ?>
                 <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
                 <p id="profile-name" class="profile-name-card">Cadastro</p>
                 <form class="form-signin" action="cadastrar.php" method="POST">
