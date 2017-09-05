@@ -1,16 +1,15 @@
+<?php
+    require('partials/_not_signed_in.php');
+?>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Login</title>
-        <link rel="stylesheet" href="css/bootstrap-reboot.css" />
-        <link rel="stylesheet" href="css/bootstrap.css" />
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
+    <?php require_once('partials/_head.php'); ?>
+    
     <body>
         <div class="container">
             <div class="card card-container">
-                
+                <a href="sign_out.php" class="btn btn-success">Sair</a>
             </div><!-- /card-container -->
         </div><!-- /container -->
 

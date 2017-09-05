@@ -1,26 +1,17 @@
+<?php
+    require("lib/Alert.php");
+
+    require('partials/_signed_in.php');
+?>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Login</title>
-        <link rel="stylesheet" href="css/bootstrap-reboot.css" />
-        <link rel="stylesheet" href="css/bootstrap.css" />
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
+    <?php require_once('partials/_head.php'); ?>
     <body>
         <div class="container">
             <div class="card card-container">
                 <?php
-                    session_start();
-                    if(isset($_SESSION['msg'])) {
-                        echo '<p class="alert alert-success">' . $_SESSION['msg'] . '</p>';
-                        unset($_SESSION['msg']);
-                    }
-
-                    if(isset($_SESSION['error'])) {
-                        echo '<p class="alert alert-danger">' . $_SESSION['error'] . '</p>';
-                        unset($_SESSION['error']);
-                    }
+                    Alert::showMessages();
                 ?>
                 <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
                 <p id="profile-name" class="profile-name-card">Cadastro</p>
