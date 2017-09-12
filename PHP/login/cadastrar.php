@@ -1,8 +1,8 @@
 <?php
-    require("lib/Encryptor.php");
-    require("lib/DatabaseCSV.php");
+    require('start.php');
 
-    session_start();
+    use App\utils\Encryptor as Encryptor;
+    use App\db\DatabaseCSV as DatabaseCSV;
 
     $email = $_POST['email'];
     $password = $_POST['password'];

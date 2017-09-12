@@ -1,5 +1,7 @@
 <?php
 
+namespace App\utils;
+
 class Encryptor {
 
     public static function encrypt($password) {

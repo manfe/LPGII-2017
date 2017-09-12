@@ -1,5 +1,7 @@
 <?php
 
+namespace App\db;
+
 class DatabaseCSV {
     private $file;
 
