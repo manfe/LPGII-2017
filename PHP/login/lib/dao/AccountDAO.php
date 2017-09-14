@@ -6,14 +6,14 @@ use \PDO;
 
 class AccountDAO {
 
-    public function insertAccount($dados) {
+    public function insertAccount($account) {
         $cf = new ConnectionFactory();
 
         $stmt = $cf->conn->prepare('INSERT INTO accounts (email, password)
                                     VALUES(:email, :ep)');
         $status = $stmt->execute(array(
-            ':email' => $dados['email'],
-            ':ep' => $dados['encrypted_password']
+            ':email' => $account->getEmail(),
+            ':ep' => $account->getPassword()
         ));
         
         return $status;        
