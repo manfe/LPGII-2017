@@ -1,16 +1,18 @@
 <?php
-    require("lib/Encryptor.php");
-    require("lib/DatabaseCSV.php");
-    
-    session_start();
+    require('start.php');
 
+    use App\entities\Account as Account;
+    use App\dao\AccountDAO as AccountDAO;
+    
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $encrypted_password = Encryptor::encrypt($password);
+    $acc = new Account();
+    $acc->setEmail($email);
+    $acc->setPassword($password);
 
-    $db = new DatabaseCSV();
-    $validated = $db->verifyData($email, $encrypted_password);
+    $adao = new AccountDAO();
+    $validated = $adao->verifyData($acc);
 
     if($validated) {
         $_SESSION['signed_in'] = true;

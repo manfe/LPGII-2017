@@ -19,6 +19,20 @@ class AccountDAO {
         return $status;        
     }
 
+    public function verifyData($account) {
+        $cf = new ConnectionFactory();
+
+        $stmt = $cf->conn->prepare('SELECT * FROM accounts 
+                                    WHERE email = :email AND password = :password');
+        
+        $status = $stmt->execute(array(
+            ':email' => $account->getEmail(),
+            ':password' => $account->getPassword()
+        ));
+        
+        return $stmt->fetch(PDO::FETCH_OBJ);        
+    }
+
     public function emailExist($email) {
         $cf = new ConnectionFactory();
 
