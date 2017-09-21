@@ -16,6 +16,7 @@ class ConnectionFactory {
             $this->conn = new PDO("mysql:host=$this->host;dbname=$this->db", 
                             $this->user, 
                             $this->password);
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch( PDOException $e ) {
             throw new Exception($e->getMessage() , $e->getCode());
         }
