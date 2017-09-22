@@ -20,6 +20,7 @@
                     <span id="reauth-email" class="reauth-email"></span>
                     <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
                     <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                    <input type="text" name="cidade" id="inputCidade" class="form-control" placeholder="Qual cidade onde nasceu?" required>
                     <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Cadastrar</button>
                 </form><!-- /form -->
                 <a href="index.php" class="forgot-password">

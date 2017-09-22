@@ -9,11 +9,12 @@ class AccountDAO {
     public function insertAccount($account) {
         $cf = new ConnectionFactory();
 
-        $stmt = $cf->conn->prepare('INSERT INTO accounts (email, password)
-                                    VALUES(:email, :ep)');
+        $stmt = $cf->conn->prepare('INSERT INTO accounts (email, password, cidade)
+                                    VALUES(:email, :ep, :cidade)');
         $status = $stmt->execute(array(
             ':email' => $account->getEmail(),
-            ':ep' => $account->getPassword()
+            ':ep' => $account->getPassword(),
+            ':cidade' => $account->getCidade()
         ));
         
         return $status;        

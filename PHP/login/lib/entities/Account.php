@@ -8,6 +8,7 @@ class Account {
 
     private $email;
     private $password;
+    private $cidade;
 
 
     public function getEmail() {
@@ -25,6 +26,14 @@ class Account {
 
     public function setPassword($password) {
         $this->password = Encryptor::encrypt($password);
+    }
+
+    public function setCidade($cidade) {
+        $this->cidade = strtolower($cidade);
+    }
+
+    public function getCidade() {
+        return $this->cidade;
     }
 
 }

@@ -5,12 +5,14 @@
     use App\dao\AccountDAO as AccountDAO;
     use App\entities\Account as Account;
 
-    $email = $_POST['email'];
+    $email    = $_POST['email'];
     $password = $_POST['password'];
+    $cidade   = $_POST['cidade'];
 
     $acc = new Account();
     $acc->setEmail($email);
     $acc->setPassword($password);
+    $acc->setCidade($cidade);
 
     $adao = new AccountDAO();
     
