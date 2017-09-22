@@ -34,6 +34,21 @@ class AccountDAO {
         return $stmt->fetch(PDO::FETCH_OBJ);        
     }
 
+    public function verifyRecover($account) {
+        $cf = new ConnectionFactory();
+
+        $stmt = $cf->conn->prepare('SELECT * FROM accounts 
+                                    WHERE email = :email AND cidade = :cidade');
+        
+        $status = $stmt->execute(array(
+            ':email' => $account->getEmail(),
+            ':cidade' => $account->getCidade()
+        ));
+        
+        return $stmt->fetch(PDO::FETCH_OBJ);       
+    }
+
+
     public function emailExist($email) {
         $cf = new ConnectionFactory();
 
@@ -43,6 +58,19 @@ class AccountDAO {
         ));
         
         return $stmt->fetch(PDO::FETCH_OBJ);        
+    }
+
+    public function updatePassword($account) {
+        $cf = new ConnectionFactory();
+
+        $stmt = $cf->conn->prepare('UPDATE accounts set password = :password
+                                    WHERE email = :email');
+        $status = $stmt->execute(array(
+            ':email' => $account->getEmail(),
+            ':password' => $account->getPassword()
+        ));
+        
+        return $status;        
     }
 
 }

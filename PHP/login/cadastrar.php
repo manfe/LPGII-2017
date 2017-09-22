@@ -1,7 +1,6 @@
 <?php
     require('start.php');
 
-    use App\utils\Encryptor as Encryptor;
     use App\dao\AccountDAO as AccountDAO;
     use App\entities\Account as Account;
 
