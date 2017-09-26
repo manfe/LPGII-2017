@@ -1,5 +1,4 @@
-<?php
-    require('start.php');    
+<?php   
     require('partials/_signed_in.php');
 
     use App\utils\Alert as Alert;
@@ -15,15 +14,18 @@
                     Alert::showMessages();
                 ?>
                 <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-                <p id="profile-name" class="profile-name-card">Recuperação de Senha</p>
-                <form class="form-signin" action="recuperar.php" method="POST">
+                <p id="profile-name" class="profile-name-card">Login</p>
+                <form class="form-signin" action="/users/login" method="POST">
                     <span id="reauth-email" class="reauth-email"></span>
                     <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-                    <input type="text" name="cidade" id="inputCidade" class="form-control" placeholder="Qual cidade onde nasceu?" required>
-                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Trocar Senha</button>
+                    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Entrar</button>
                 </form><!-- /form -->
-                <a href="index.php" class="forgot-password">
-                    Já tem cadastro?
+                <a href="/users/sign_up" class="forgot-password">
+                    Gostaria de se cadastrar?
+                </a>
+                <a href="/users/recover_form" class="forgot-password">
+                    Esqueceu sua senha?
                 </a>
             </div><!-- /card-container -->
         </div><!-- /container -->
