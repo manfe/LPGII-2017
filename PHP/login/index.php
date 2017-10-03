@@ -22,6 +22,8 @@ $routes = [
     '/users/new_password_form' => ['class' => 'App\controllers\UsersController', 'method' => 'newPasswordForm'],
     '/users/new_password' => ['class' => 'App\controllers\UsersController', 'method' => 'newPassword'],
     '/dashboard' => ['class' => 'App\controllers\DashboardController', 'method' => 'index'],
+
+    '/admin/products' => ['class' => 'App\controllers\ProductsController', 'method' => 'index'],
 ];
 
 
