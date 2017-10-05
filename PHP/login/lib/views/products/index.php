@@ -1,4 +1,5 @@
 <?php require('partials/admin/_head.php') ?>
+<?php use App\utils\Alert as Alert; ?>
 
   <body class="nav-md">
     <div class="container body">
@@ -17,38 +18,42 @@
           <div class="">
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
+                <?php 
+                  Alert::showMessages(); 
+                ?>
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Cadastro de Produtos</h2>
+                    <h2>Lista de Produtos</h2>
+                    <a href="/admin/products/new" class="btn btn-primary btn-sm pull-right">Novo Produto</a>                      
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                    <br />
-                    <form id="produtos-cadastrar" data-parsley-validate class="form-horizontal form-label-left">
-
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="product-nome" name="product_name" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Valor <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="product-valor" name="product_value" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-success">Salvar</button>
-                          <button class="btn btn-warning pull-right" type="button">Cancelar</button>						              
-                        </div>
-                      </div>
-
-                    </form>
+                    <table class="table">
+                      <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Valor</th>
+                        <th>Ações</th>
+                      </tr>
+                      <?php foreach($products as $product): ?>
+                        <tr>
+                          <td><?= $product->getId() ?></td>
+                          <td><?= $product->getNome() ?></td>
+                          <td>R$ <?= $product->getValor() ?></td>
+                          <td>
+                            <a href="/admin/products/show?id=<?=$product->getId()?>" class="btn btn-xs btn-primary">
+                              <i class="fa fa-eye"></i>
+                            </a>
+                            <a href="/admin/products/edit?id=<?=$product->getId()?>" class="btn btn-xs btn-warning">
+                              <i class="fa fa-pencil"></i>
+                            </a>
+                            <a href="/admin/products/delete?id=<?=$product->getId()?>" class="btn btn-xs btn-danger">
+                              <i class="fa fa-trash"></i>
+                            </a>
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
+                    </table>
                   </div>
                 </div>
               </div>

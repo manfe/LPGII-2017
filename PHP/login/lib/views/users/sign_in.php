@@ -10,9 +10,7 @@
     <body>
         <div class="container">
             <div class="card card-container">
-                <?php
-                    Alert::showMessages();
-                ?>
+                <?php Alert::showMessages(); ?>
                 <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
                 <p id="profile-name" class="profile-name-card">Login</p>
                 <form class="form-signin" action="/users/login" method="POST">

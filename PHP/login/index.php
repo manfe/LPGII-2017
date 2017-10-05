@@ -24,6 +24,9 @@ $routes = [
     '/dashboard' => ['class' => 'App\controllers\DashboardController', 'method' => 'index'],
 
     '/admin/products' => ['class' => 'App\controllers\ProductsController', 'method' => 'index'],
+    '/admin/products/new' => ['class' => 'App\controllers\ProductsController', 'method' => 'new'],
+    '/admin/products/create' => ['class' => 'App\controllers\ProductsController', 'method' => 'create'],
+    '/admin/products/show' => ['class' => 'App\controllers\ProductsController', 'method' => 'show'],
 ];
 
 
