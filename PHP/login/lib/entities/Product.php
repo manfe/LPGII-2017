@@ -7,6 +7,7 @@ class Product {
     private $id;
     private $nome;
     private $valor;
+    private $categoria;
 
     public function getId() {
         return $this->id;
@@ -30,6 +31,14 @@ class Product {
 
     public function getValor() {
         return $this->valor;
+    }
+
+    public function setCategoria($categoria) {
+        $this->categoria = $categoria;
+    }
+
+    public function getCategoria() {
+        return $this->categoria;
     }
 
 }

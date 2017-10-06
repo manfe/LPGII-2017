@@ -33,6 +33,7 @@
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Valor</th>
+                        <th>Categoria</th>
                         <th>Ações</th>
                       </tr>
                       <?php foreach($products as $product): ?>
@@ -40,6 +41,7 @@
                           <td><?= $product->getId() ?></td>
                           <td><?= $product->getNome() ?></td>
                           <td>R$ <?= $product->getValor() ?></td>
+                          <td><?= $product->getCategoria() ?></td>
                           <td>
                             <a href="/admin/products/show?id=<?=$product->getId()?>" class="btn btn-xs btn-primary">
                               <i class="fa fa-eye"></i>

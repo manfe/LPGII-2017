@@ -29,14 +29,25 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Nome <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="nome" name="product_name" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" name="nome" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Valor <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" name="valor" name="product_value" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="text" name="valor" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Categoria <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select name="categoria" class="form-control col-md-7 col-xs-12">
+                            <?php foreach($categories as $category): ?>
+                              <option value="<?= $category->getId() ?>"><?= $category->getNome() ?></option>
+                            <?php endforeach; ?>
+                          </select>
                         </div>
                       </div>
                       <div class="ln_solid"></div>

@@ -10,11 +10,12 @@ class ProductDAO {
     public function insertProduct($product) {
         $cf = new ConnectionFactory();
 
-        $stmt = $cf->conn->prepare('INSERT INTO products (nome, valor)
-                                    VALUES(:nome, :valor)');
+        $stmt = $cf->conn->prepare('INSERT INTO products (nome_product, valor_product, id_category)
+                                    VALUES(:nome, :valor, :id_category)');
         $status = $stmt->execute(array(
             ':nome' => $product->getNome(),
-            ':valor' => $product->getValor()
+            ':valor' => $product->getValor(),
+            ':id_category' => $product->getCategoria()
         ));
         
         return $status;        
@@ -23,7 +24,9 @@ class ProductDAO {
     public function all() {
         $cf = new ConnectionFactory();
 
-        $stmt = $cf->conn->prepare('SELECT * FROM products');
+        $stmt = $cf->conn->prepare('SELECT * FROM products p
+                                    JOIN categories c
+                                    ON (c.id_category = p.id_category)');
         $stmt->execute();
         
         $produts = [];
@@ -31,8 +34,9 @@ class ProductDAO {
         foreach($stmt->fetchAll() as $product) {
             $p = new Product();
             $p->setId($product['id_product']);
-            $p->setNome($product['nome']);
-            $p->setValor($product['valor']);
+            $p->setNome($product['nome_product']);
+            $p->setValor($product['valor_product']);
+            $p->setCategoria($product['nome_category']);
 
             $products[] = $p;
         }
@@ -51,8 +55,8 @@ class ProductDAO {
         foreach($stmt->fetchAll() as $product) {
             $p = new Product();
             $p->setId($product['id_product']);
-            $p->setNome($product['nome']);
-            $p->setValor($product['valor']);
+            $p->setNome($product['nome_product']);
+            $p->setValor($product['valor_product']);
         }
         
         return $p;
