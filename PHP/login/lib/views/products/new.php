@@ -45,7 +45,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select name="categoria" class="form-control col-md-7 col-xs-12">
                             <?php foreach($categories as $category): ?>
-                              <option value="<?= $category->getId() ?>"><?= $category->getNome() ?></option>
+                              <option value="<?= $category->id ?>"><?= $category->nome ?></option>
                             <?php endforeach; ?>
                           </select>
                         </div>

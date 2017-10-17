@@ -2,24 +2,21 @@
 
 namespace App\controllers;
 
-use App\entities\Product as Product;
-use App\dao\ProductDAO as ProductDAO;
-use App\dao\CategoryDAO as CategoryDAO;
+use App\models\Product as Product;
+use App\models\Category as Category;
 
 class ProductsController {
 
     public function index() {
-        $pdao = new ProductDAO();
-        $products = $pdao->all();
+        $products = Product::all();
+        $total = Product::count();
 
         // Aqui vai toda a consulta com o banco de dados
         return include('lib/views/products/index.php');      
     }
 
     public function new() {
-        $cdao = new CategoryDAO();
-        
-        $categories = $cdao->all(); 
+        $categories = Category::all(); 
         
         // Aqui vai toda a consulta com o banco de dados
         return include('lib/views/products/new.php');      
@@ -30,14 +27,12 @@ class ProductsController {
         $valor = $_POST['valor'];
         $category = $_POST['categoria'];
 
-        $p = new Product();
-        $p->setNome($nome);
-        $p->setValor($valor);
-        $p->setCategoria($category);
-
-        $pdao = new ProductDAO();
+        $p = new Product;
+        $p->nome = $nome;
+        $p->valor = $valor;
+        $p->category_id = $category;
         
-        if($pdao->insertProduct($p)) {
+        if($p->save()) {
             $_SESSION['msg'] = "Produto cadastrado com sucesso";
             header('Location: /admin/products');
             exit();

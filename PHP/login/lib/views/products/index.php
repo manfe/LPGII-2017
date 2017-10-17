@@ -38,24 +38,25 @@
                       </tr>
                       <?php foreach($products as $product): ?>
                         <tr>
-                          <td><?= $product->getId() ?></td>
-                          <td><?= $product->getNome() ?></td>
-                          <td>R$ <?= $product->getValor() ?></td>
-                          <td><?= $product->getCategoria() ?></td>
+                          <td><?= $product->id ?></td>
+                          <td><?= $product->nome ?></td>
+                          <td>R$ <?= $product->valor ?></td>
+                          <td><?= $product->category->nome ?></td>
                           <td>
-                            <a href="/admin/products/show?id=<?=$product->getId()?>" class="btn btn-xs btn-primary">
+                            <a href="/admin/products/show?id=<?=$product->id_product?>" class="btn btn-xs btn-primary">
                               <i class="fa fa-eye"></i>
                             </a>
-                            <a href="/admin/products/edit?id=<?=$product->getId()?>" class="btn btn-xs btn-warning">
+                            <a href="/admin/products/edit?id=<?=$product->id_product?>" class="btn btn-xs btn-warning">
                               <i class="fa fa-pencil"></i>
                             </a>
-                            <a href="/admin/products/delete?id=<?=$product->getId()?>" class="btn btn-xs btn-danger">
+                            <a href="/admin/products/delete?id=<?=$product->id_product?>" class="btn btn-xs btn-danger">
                               <i class="fa fa-trash"></i>
                             </a>
                           </td>
                         </tr>
                       <?php endforeach; ?>
                     </table>
+                    <p>A quantidade total de produtos é: <?= $total ?></p>
                   </div>
                 </div>
               </div>
