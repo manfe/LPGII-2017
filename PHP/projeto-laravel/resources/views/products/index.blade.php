@@ -4,6 +4,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+                {{ dd($produtos) }}
+
                 <h1>Estou no arquivo index.blade.php da pasta products</h1>
             </div>
         </div>
